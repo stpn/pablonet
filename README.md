@@ -1,9 +1,33 @@
+# Pablonet
+
+<div class="image-container" style="flex: 1; text-align: left">
+    <img src="frame.png"  width="200">
+</div>
+
+Blogpost: https://mlecauchois.github.io/posts/pablonet/
+
+## Setup
+
 ```
-python ws_server.py --base_model_path "digiplay/GhostMix" --acceleration "tensorrt" --prompt "" --num_inference_steps 30 --guidance_scale 0.6 --lora_path ../models/RetroGlitch.safetensors --lora_scale 1.2 --t_index_list "[8,20]"
+pip install -r requirements.txt
+```
+
+## Run
+
+Server CLI:
+```
+python ws_server.py --base_model_path "Lykon/DreamShaper" \
+--acceleration "tensorrt" \
+--prompt "" \
+--num_inference_steps 30 \
+--guidance_scale 1.0 \
+--t_index_list "[14,18]" \
+--preprocessing canny_blur_shift \
+--compression 80 \
+--port 6000
+```
+
+Raspberry Pi client CLI:
 ```
 
 ```
-python ws_client.py --prompt "masterpiece, best quality, solo, ((Red Retro Glitch)), dark, techno, Retro Glitch, a man with a head made of many different colored balls "
-```
-
-For pi the easiest is to install picamera and opencv without venvs.
