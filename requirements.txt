@@ -1,0 +1,10 @@
+fire
+opencv-python
+numpy==1.26.4
+websockets
+torch==2.1.0
+diffusers
+Pillow
+torchvision==0.16.0
+websockets
+streamdiffusion[tensorrt]
