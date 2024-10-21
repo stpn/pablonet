@@ -9,7 +9,10 @@ Blogpost: https://mlecauchois.github.io/posts/pablonet/
 ## Setup
 
 ```
+python3.10 -m venv .env
+source .env/bin/activate
 pip install -r requirements.txt
+python -m streamdiffusion.tools.install-tensorrt
 ```
 
 ## Run
