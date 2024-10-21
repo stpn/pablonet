@@ -16,7 +16,7 @@ pip install -r requirements.txt
 
 Server CLI:
 ```
-python ws_server.py --base_model_path "Lykon/DreamShaper" \
+python server.py --base_model_path "Lykon/DreamShaper" \
 --acceleration "tensorrt" \
 --prompt "" \
 --num_inference_steps 30 \
