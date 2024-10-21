@@ -8,3 +8,6 @@ Pillow
 torchvision==0.16.0
 websockets
 streamdiffusion[tensorrt]
+huggingface_hub==0.24.7
+polygraphy
+onnx_graphsurgeon
