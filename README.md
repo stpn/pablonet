@@ -35,5 +35,11 @@ python server.py --base_model_path "Lykon/DreamShaper" \
 
 Raspberry Pi client CLI:
 ```
-
+python client_pi.py --prompt "painting in the style of pablo picasso, cubism, sharp high quality painting, oil painting, mute colors red yellow orange, background of green, color explosion, abstract surrealism" \
+--image_size 150 \
+--url ws://YOUR_URL_HERE \
+--fullscreen \
+--crop_size 900 \
+--crop_offset_y 40 \
+--compression 60
 ```
