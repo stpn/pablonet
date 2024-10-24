@@ -44,11 +44,10 @@ python client_pi.py --prompt "painting in the style of pablo picasso, cubism, sh
 --compression 60
 ```
 
-```quote
- Nice! I peeked at the code and thought I’d share a few tips for improving the low frame rate:
-Base64 encoding the JPEG bytes will increase payload size up to ~30% and burns CPU cycles on both client and server. This is unnecessary, as Websocket protocol can send binary payloads (doesn’t need to be text).
-Consider removing lossy jpg compression as well, ie just send the raw RGB bytes over the network. Then on the server side you can simply call Image.frombuffer(…).
-StreamDiffusion can achieve high frame rates because of extensive batching in the pipeline. You’re not benefiting from that here as the client is only sending one frame at a time and then waiting for a response. See this example for an idea of how to queue input frames and consume them in batches https://github.com/cumulo-autumn/StreamDiffusion/blob/main/e... .
 
-Alternatively you could take a look at the SDXL Turbo and Lightning models. They are very fast at img2img but have limited resolution of 512² or 1024² pixels respectively. Which appears a bit lower than what you’re aiming for here, but they can be run locally in real time on a high end consumer grade GPU. For reference I have some code demonstrating this here https://github.com/GradientSurfer/Draw2Img/tree/main
-```
+> Nice! I peeked at the code and thought I’d share a few tips for improving the low frame rate:
+> Base64 encoding the JPEG bytes will increase payload size up to ~30% and burns CPU cycles on both client and server. This is unnecessary, as Websocket protocol can send binary payloads (doesn’t need to be text).
+> Consider removing lossy jpg compression as well, ie just send the raw RGB bytes over the network. Then on the server side you can simply call Image.frombuffer(…).
+> StreamDiffusion can achieve high frame rates because of extensive batching in the pipeline. You’re not benefiting from that here as the client is only sending one frame at a time and then waiting for a response. See this example for an idea of how to queue input frames and consume them in batches https://github.com/cumulo-autumn/StreamDiffusion/blob/main/e... .
+> Alternatively you could take a look at the SDXL Turbo and Lightning models. They are very fast at img2img but have limited resolution of 512² or 1024² pixels respectively. Which appears a bit lower than what you’re aiming for here, but they can be run locally in real time on a high end consumer grade GPU. For reference I have some code demonstrating this here https://github.com/GradientSurfer/Draw2Img/tree/main
+
